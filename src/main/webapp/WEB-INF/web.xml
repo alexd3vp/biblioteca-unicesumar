@@ -4,12 +4,41 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
          
+  <!--
+    Nome da aplicação web.
+  -->
   <display-name>Projeto Web - Biblioteca Unicesumar</display-name>
   
+  <!--
+    Declaração do recurso de conexão ao banco de dados utilizado pela aplicação.
+    Isso informa ao container que existe um recurso JNDI com o nome "jdbc/bibliotecaDB"
+    do tipo javax.sql.DataSource, gerenciado pelo container (Tomcat).
+  -->
   <resource-ref>
+    <!-- Descrição do recurso para melhor entendimento -->
     <description>Biblioteca Database Connection</description>
+
+    <!-- Nome JNDI do recurso usado pela aplicação (deve corresponder ao configurado no context.xml) -->
     <res-ref-name>jdbc/bibliotecaDB</res-ref-name>
+
+    <!-- Tipo do recurso, que no caso é um DataSource para conexão com banco -->
     <res-type>javax.sql.DataSource</res-type>
+
+    <!-- Tipo de autenticação para acesso ao recurso, normalmente Container para pool gerenciado -->
     <res-auth>Container</res-auth>
   </resource-ref>
+
+  <!-- Lista de páginas iniciais -->
+  <welcome-file-list>
+
+    <!-- Página inicial -->
+    <welcome-file>inicio</welcome-file>
+  </welcome-file-list>
+
+  <!-- Página de erro - 404-->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/recursoNaoEncontrado.jsp</location>
+  </error-page>
+  
 </web-app>

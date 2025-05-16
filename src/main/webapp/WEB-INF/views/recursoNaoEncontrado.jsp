@@ -5,7 +5,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Biblioteca - Início</title>
+        <title>Recurso não encontrado</title>
     </head>
 
     <body>
@@ -21,9 +21,9 @@
         </nav>
 
         <div class="container">
-            <div class="content">
-                <a href="<%= request.getContextPath() %>/catalogo">Ver catálogo</a>
-            </div>
+            <h1>Erro 404 - Página não encontrada</h1>
+            <p>A página que você tentou acessar não existe.</p>
+            <a href="<%= request.getContextPath() %>/inicio">Voltar para o início</a>
         </div>
 
     </body>

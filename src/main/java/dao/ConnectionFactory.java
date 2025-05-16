@@ -14,10 +14,15 @@ import javax.sql.DataSource;
 public class ConnectionFactory {
 
     /**
-     * Método para realizar a conexão utilizando JNDI DataSource
-     * 
-     * @return a conexão com o banco de dados
+     * Realiza a busca do DataSource via JNDI e retorna uma conexão com o banco de
+     * dados.
+     * O DataSource deve estar previamente configurado no servidor de aplicação.
+     *
+     * @return Conexão ativa com o banco de dados.
+     * @throws RuntimeException caso ocorra erro na resolução JNDI ou obtenção da
+     *                          conexão.
      */
+
     public static Connection getConnection() {
         try {
             // Obtém o contexto inicial JNDI
@@ -33,11 +38,13 @@ public class ConnectionFactory {
             return ds.getConnection();
 
         } catch (NamingException | SQLException e) {
-            // Log do erro detalhado
+            // Imprime erro no console caso capturar alguma exceção.
             System.err.println("Erro ao obter conexão via JNDI: " + e.getMessage());
+
+            // Imprime a plha de erros
             e.printStackTrace();
 
-            // Lança uma exceção de runtime para notificar o chamador sobre o problema
+            // Lança uma exceção de runtime para notificar sobre o problema
             throw new RuntimeException("Não foi possível estabelecer conexão com o banco de dados. " +
                     "Verifique se o DataSource está configurado corretamente.", e);
         }
