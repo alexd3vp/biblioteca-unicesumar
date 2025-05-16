@@ -5,7 +5,7 @@
     <Resource name="jdbc/bibliotecaDB"
               auth="Container"
               type="javax.sql.DataSource"
-              username="alexd3vp"
+              username="postgres"
               password="postgres"
               driverClassName="org.postgresql.Driver"
               url="jdbc:postgresql://localhost:5432/biblioteca_unicesumar_db"/>
